@@ -9,7 +9,7 @@ export class ArrayExtend {
 
     /**
      * Get average value from number array.
-     * Is you pass field name you can get average value
+     * If you pass field name you can get average value
      * from array like this [{ field: 1 }, { field: 2 }, ...]
      * @param {string} field
      */
