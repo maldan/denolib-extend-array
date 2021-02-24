@@ -185,6 +185,10 @@ export class ArrayExtend {
         });
     }
 
+    /**
+     * Check if an array contain all values
+     * @param {...unknown[]} value
+     */
     contain(...value: unknown[]): boolean {
         for (let i = 0; i < value.length; i++) {
             if (!this.array.includes(value[i])) {
@@ -192,6 +196,25 @@ export class ArrayExtend {
             }
         }
         return true;
+    }
+
+    /**
+     * Split an array into chunks.
+     * For example `[1, 2, 3, 4]` goes to `[[1, 2], [3, 4]]`
+     * if you do `chunk(2)`. Or to [[1, 2, 3], [4]] if `chunk(3)`
+     * @param {number} size - Chunk size
+     */
+    chunk(size = 0) {
+        if (size <= 0) {
+            return this.array;
+        }
+        const out = [];
+        const l = Math.ceil(this.array.length / size);
+        for (let i = 0; i < l; i++) {
+            const p = this.array.splice(0, size);
+            out.push(p);
+        }
+        return out;
     }
 }
 

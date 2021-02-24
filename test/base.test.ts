@@ -82,3 +82,15 @@ Deno.test("contain", () => {
     assertEquals(EArray([1, 2, 3]).contain(5), false);
     assertEquals(EArray([1, 2, 3]).contain(1, 5), false);
 });
+
+Deno.test("chunk", () => {
+    assertEquals(EArray([1, 2, 3]).chunk(1), [[1], [2], [3]]);
+    assertEquals(EArray([1, 2, 3]).chunk(2), [[1, 2], [3]]);
+    assertEquals(EArray([1, 2, 3]).chunk(3), [[1, 2, 3]]);
+    assertEquals(EArray([1, 2, 3]).chunk(4), [[1, 2, 3]]);
+    assertEquals(EArray([1, 2, 3]).chunk(0), [1, 2, 3]);
+    assertEquals(EArray([1, 2, 3, 4]).chunk(2), [
+        [1, 2],
+        [3, 4],
+    ]);
+});
